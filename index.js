@@ -139,7 +139,7 @@ module.exports = function createLogo (options_) {
       var viewportHeight = rect.height
       perspective(
         projection,
-        Math.PI / 4.0,
+        Math.PI / 100.0, // FOV
         viewportWidth / viewportHeight,
         100.0,
         1000.0)
