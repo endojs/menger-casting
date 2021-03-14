@@ -75,8 +75,12 @@ const VI = 'vertexIndex'
 
 const model = data.models[0];
 model.vertices.forEach((v) => {
-    output.positions.push([v.x, v.y, v.z]);
+    output.positions.push([sub(v.x), sub(v.y), sub(v.z)]);
 })
+
+function sub (coord) {
+  return coord - 4.5;
+}
 
 for (const mtlKey in mtl) {
     const m = mtl[mtlKey];

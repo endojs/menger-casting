@@ -61,8 +61,11 @@ export type EfficientModel = {
 var VI = 'vertexIndex';
 var model = data.models[0];
 model.vertices.forEach(function (v) {
-    output.positions.push([v.x, v.y, v.z]);
+    output.positions.push([sub(v.x), sub(v.y), sub(v.z)]);
 });
+function sub(coord) {
+    return coord - 4.5;
+}
 var _loop_1 = function (mtlKey) {
     var m = mtl[mtlKey];
     if (!m.Ka) {
