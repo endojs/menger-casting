@@ -57,8 +57,8 @@ module.exports = function createLogo (options_) {
 
   function setLookAt(target) {
     var bounds = container.getBoundingClientRect()
-    mouse.x = 1.0 - 2.0 * (target.x - bounds.left) / bounds.width
-    mouse.y = 1.0 - 2.0 * (target.y - bounds.top) / bounds.height
+    mouse.x = 1.0 - 15.0 * (target.x - bounds.left) / bounds.width
+    mouse.y = 1.0 - 15.0 * (target.y - bounds.top) / bounds.height
   }
 
   document.body.appendChild(container)
@@ -274,6 +274,10 @@ module.exports = function createLogo (options_) {
     }
   })
 
+  const rotationPos = 0;
+  function rotate (speed) {
+  }
+
   window.addEventListener('deviceorientation', function (event) {
     if (!shouldRender) { startAnimation() }
     if (followMotion) {
@@ -326,5 +330,6 @@ module.exports = function createLogo (options_) {
     stopAnimation: stopAnimation,
     startAnimation: startAnimation,
     reRender: reRender,
+    rotate: rotate,
   }
 }
