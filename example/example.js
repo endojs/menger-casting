@@ -20,8 +20,12 @@ var createViewer = require('../index')
 var viewer = createViewer({
   width: 0.4,
   height: 0.4,
-  followMouse: true,
-  followMotion: true,
-})
+  followMouse: false,
+  followMotion: false,
+});
+
+console.log(viewer);
 
 document.body.appendChild(viewer.container)
+viewer.spin();
+viewer.startAnimation();

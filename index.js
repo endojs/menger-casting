@@ -20,7 +20,7 @@ module.exports = function createLogo (options_) {
   var options = options_ || {}
 
   var followCursor = !!options.followMouse
-  var slowDrift = !!options.slowDrift
+  var spinMode = !!options.spinMode
   var shouldRender = true
 
   var DISTANCE = 400
@@ -154,11 +154,15 @@ module.exports = function createLogo (options_) {
         objectCenter,
         target,
         up)
-      if (slowDrift) {
+
+        
+      if (spinMode) {
         var time = (Date.now() / 1000.0)
-        rotate(model, model, 0.1 + (Math.sin(time / 3) * 0.2), X)
-        rotate(model, model, -0.1 + (Math.sin(time / 2) * 0.03), Z)
-        rotate(model, model, 0.5 + (Math.sin(time / 3) * 0.2), Y)
+        rotate(model, model, Math.PI * 2 / 3, X);
+        rotate(model, model, time / 3, Z);
+        //rotate(model, model, 0.1 + (Math.sin(time / 3) * 0.2), X)
+//        rotate(model, model, -0.1 + (Math.sin(time / 2) * 0.03), Z)
+ //       rotate(model, model, 0.5 + (Math.sin(time / 3) * 0.2), Y)
       }
 
       multiply(transformed, projection, view)
@@ -272,11 +276,7 @@ module.exports = function createLogo (options_) {
       })
       renderScene()
     }
-  })
-
-  const rotationPos = 0;
-  function rotate (speed) {
-  }
+  });
 
   window.addEventListener('deviceorientation', function (event) {
     if (!shouldRender) { startAnimation() }
@@ -301,6 +301,7 @@ module.exports = function createLogo (options_) {
   })
 
   function renderScene () {
+    debugger
     if (!shouldRender) return
     window.requestAnimationFrame(renderScene)
 
@@ -313,7 +314,18 @@ module.exports = function createLogo (options_) {
     var matrix = computeMatrix()
     updatePositions(matrix)
     updateFaces(polygons)
-    stopAnimation()
+  }
+
+  function spin () {
+    console.log('spinning')
+    spinMode = true;    
+    shouldRender = true;
+    renderScene();
+
+    return function cancel () {
+      shouldRender = false;
+      spinMode = false;
+    }
   }
 
   function reRender (colors) {
@@ -330,6 +342,6 @@ module.exports = function createLogo (options_) {
     stopAnimation: stopAnimation,
     startAnimation: startAnimation,
     reRender: reRender,
-    rotate: rotate,
+    spin: spin,
   }
 }
