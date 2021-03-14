@@ -3,8 +3,8 @@ exports.__esModule = true;
 var OBJFile = require('obj-file-parser');
 var fs = require("fs");
 var path = require("path");
-var obj = fs.readFileSync("./fox.obj").toString();
-var mtlRaw = fs.readFileSync("./fox.mtl").toString('utf8');
+var obj = fs.readFileSync("./model.obj").toString();
+var mtlRaw = fs.readFileSync("./model.mtl").toString('utf8');
 function parseMTL(mtl) {
     var output = {};
     mtl.split('newmtl ').slice(1).forEach(function (block) {
@@ -35,7 +35,7 @@ function parseMTL(mtl) {
 var mtl = parseMTL(mtlRaw);
 var objF = new OBJFile(obj);
 var data = objF.parse(objF);
-var outpath = path.join(__dirname, 'fox.json');
+var outpath = path.join(__dirname, 'model.json');
 var output = {
     positions: [],
     chunks: []

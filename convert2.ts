@@ -4,8 +4,8 @@ const OBJFile = require('obj-file-parser');
 var fs = require("fs");
 var path = require("path");
 
-var obj = fs.readFileSync("./fox.obj").toString();
-var mtlRaw = fs.readFileSync("./fox.mtl").toString('utf8');
+var obj = fs.readFileSync("./model.obj").toString();
+var mtlRaw = fs.readFileSync("./model.mtl").toString('utf8');
 
 
 function parseMTL (mtl) {
@@ -45,7 +45,7 @@ const objF = new OBJFile(obj);
 
 const data = objF.parse(objF);
 
-var outpath = path.join(__dirname, 'fox.json');
+var outpath = path.join(__dirname, 'model.json');
 
 const output: EfficientModel = {
     positions: [],

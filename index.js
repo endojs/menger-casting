@@ -4,7 +4,7 @@ var lookAt = require('gl-mat4/lookAt')
 var invert = require('gl-mat4/invert')
 var rotate = require('gl-mat4/rotate')
 var transform = require('gl-vec3/transformMat4')
-var foxJSON = require('./fox.json')
+var modelJSON = require('./model.json')
 
 var SVG_NS = 'http://www.w3.org/2000/svg'
 
@@ -35,7 +35,7 @@ module.exports = function createLogo (options_) {
     y: 0
   }
 
-  var NUM_VERTS = foxJSON.positions.length
+  var NUM_VERTS = modelJSON.positions.length
 
   var positions = new Float32Array(3 * NUM_VERTS)
   var transformed = new Float32Array(3 * NUM_VERTS)
@@ -64,7 +64,7 @@ module.exports = function createLogo (options_) {
   document.body.appendChild(container)
 
   ;(function () {
-    var pp = foxJSON.positions
+    var pp = modelJSON.positions
     var ptr = 0
     for (var i = 0; i < pp.length; ++i) {
       var p = pp[i]
@@ -83,8 +83,8 @@ module.exports = function createLogo (options_) {
   var generatePolygons = function (colors = []) {
     console.log('generating polygons with colors: ', colors)
     var _polygons = []
-    for (var i = 0; i < foxJSON.chunks.length; ++i) {
-      var chunk = foxJSON.chunks[i]
+    for (var i = 0; i < modelJSON.chunks.length; ++i) {
+      var chunk = modelJSON.chunks[i]
       console.log('otherwise falling back to ', chunk.color)
       var colorArr = Boolean(colors[i]) ? colors[i] : chunk.color
       var color = 'rgb(' + colorArr + ')'
