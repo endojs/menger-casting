@@ -1,12 +1,11 @@
 {
-  "name": "metamask-logo",
+  "name": "menger-casting",
   "version": "2.2.1",
-  "description": "A browserifyable 3d metamask logo. [Live demo](http://metamask.github.io/metamask-logo/).",
+  "description": "A browserifyable 3d logo. [Live demo](http://danfinlay.github.io/menger-casting/).",
   "main": "index.js",
   "scripts": {
     "build": "tsc convert2.ts && node convert2.js && browserify example/example.js -g uglifyify -o bundle.js",
     "start": "wzrd example/example.js:bundle.js",
-    "convert": "node convert.js > fox.json",
     "test": "standard index.js"
   },
   "author": "MetaMask",
