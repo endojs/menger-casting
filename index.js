@@ -284,7 +284,7 @@ module.exports = function createLogo (options_) {
       // x offset: needed to correct the intial position
       const xOffset = 200
       // y offset: needed to correct the intial position
-      const yOffset = -300
+      const yOffset = -200
       // acceleration
       const acceleration = 10
 
