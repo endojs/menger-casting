@@ -1,11 +1,10 @@
-# Metamask Logo
+# Menger Casting Model
 
-A browserifyable 3d metamask logo. [Live demo](http://danfinlay.github.io/menger-casting).
+A JavaScript visualization of the inverse of a menger cube, which Alexa Finlay suggested we call a "casting". [Live demo](http://danfinlay.github.io/menger-casting).
+
+Designed for consideration as a possible logo for [endo](https://github.com/endojs)
 
 This repo can both be included as a browserifiable module, and includes a sample app.
-
-The sample app address is `index.html`.
-The sample app javascript is `bundle.js`, which is built from `sample.js` using the `build` task (see the `package.json`).
 
 ## API
 ```javascript
@@ -46,3 +45,9 @@ viewer.setFollowMouse(true)
 // deallocate nicely
 viewer.stopAnimation()
 ```
+
+## Modifying
+
+The sample app address is `index.html`.
+The sample app javascript is `bundle.js`, which is built from `sample.js` using the `build` task (see the `package.json`).
+
