@@ -5,10 +5,24 @@
 <title>---</title>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 <meta charset=utf-8></head>
+<style>
+.footer p {
+    border: 1px solid grey;
+    padding: 4px;
+}
+</style>
+</head>
 <body>
-<div></div>
+<div id="container"></div>
 </body>
 <script src="bundle.js"></script>
-<p>Press C to copy the SVG text of the image.</p>
-<p><a href="https://github.com/danfinlay/menger-casting">Fork on GitHub</a></p>
+
+<footer style="position: absolute; bottom: 5px; display:inline-flex;">
+    <p>Press C to copy the SVG text of the image.</p>
+    <p>Body <input type="color" id="bodyColorPicker" value="#ff0000"></p>
+    <p>Cap <input type="color" id="capColorPicker" value="#ffffff"></p>
+    <p>Background <input type="color" id="backgroundColorPicker" value="#000"></p>
+    <p>Spin speed<input type="range" id="spinSpeedPicker" value="3" min="0.001" max="10"></p>
+    <p><a href="https://github.com/danfinlay/menger-casting">Fork on GitHub</a></p>
+</footer>
 </html>

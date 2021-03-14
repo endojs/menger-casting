@@ -21,6 +21,7 @@ module.exports = function createLogo (options_) {
 
   var followCursor = !!options.followMouse
   var spinMode = !!options.spinMode
+  var SPIN_SPEED = options.SPIN_SPEED || 3;
   var shouldRender = true
 
   var DISTANCE = 400
@@ -132,6 +133,7 @@ module.exports = function createLogo (options_) {
     var X = new Float32Array([1, 0, 0])
     var Y = new Float32Array([0, 1, 0])
     var Z = new Float32Array([0, 0, 1])
+    var SPIN_ANGLE = new Float32Array([0.0,0.0,1]);
 
     return function () {
       var rect = container.getBoundingClientRect()
@@ -159,7 +161,7 @@ module.exports = function createLogo (options_) {
       if (spinMode) {
         var time = (Date.now() / 1000.0)
         rotate(model, model, Math.PI * 2 / 3, X);
-        rotate(model, model, time / 3, Z);
+        rotate(model, model, time / SPIN_SPEED, SPIN_ANGLE);
         //rotate(model, model, 0.1 + (Math.sin(time / 3) * 0.2), X)
 //        rotate(model, model, -0.1 + (Math.sin(time / 2) * 0.03), Z)
  //       rotate(model, model, 0.5 + (Math.sin(time / 3) * 0.2), Y)
@@ -301,7 +303,6 @@ module.exports = function createLogo (options_) {
   })
 
   function renderScene () {
-    debugger
     if (!shouldRender) return
     window.requestAnimationFrame(renderScene)
 
@@ -333,6 +334,10 @@ module.exports = function createLogo (options_) {
     renderScene(polygons)
   }
 
+  function setSpeed (newSpeed) {
+    SPIN_SPEED = newSpeed
+  }
+
   renderScene(polygons)
 
   return {
@@ -343,5 +348,6 @@ module.exports = function createLogo (options_) {
     startAnimation: startAnimation,
     reRender: reRender,
     spin: spin,
+    setSpeed: setSpeed,
   }
 }
