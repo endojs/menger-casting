@@ -57,5 +57,5 @@ viewer.stopAnimation()
 ## Modifying
 
 The sample app address is `index.html`.
-The sample app javascript is `bundle.js`, which is built from `sample.js` using the `build` task (see the `package.json`).
+The sample app javascript is `bundle.js`, which is built from `sample.js` using the `convert` and `build` tasks (see the `package.json`).
 
