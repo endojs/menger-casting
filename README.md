@@ -1,6 +1,6 @@
 # Menger Casting Model
 
-A JavaScript visualization of the inverse of a [menger sponge](https://en.wikipedia.org/wiki/Menger_sponge), which Alexa Finlay suggested we call a "casting". [Live demo](http://danfinlay.github.io/menger-casting).
+A JavaScript visualization of the inverse of a [menger sponge](https://en.wikipedia.org/wiki/Menger_sponge), which Alexa Finlay suggested we call a "casting". [Live demo](http://endojs.github.io/menger-casting).
 
 Designed for consideration as a possible logo for [endo](https://github.com/endojs)
 
@@ -10,8 +10,8 @@ This repo can both be included as a browserifiable module, and includes a sample
 
 Not currently on npm, so install from github:
 ```
-npm i danfinlay/menger-casting#master
-yarn add danfinlay/menger-casting#master
+npm i endojs/menger-casting#master
+yarn add endojs/menger-casting#master
 ```
 
 ## API
